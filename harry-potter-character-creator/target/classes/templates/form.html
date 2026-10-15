@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Harry Potter Character Creator</title>
+    <style>
+        body{
+            font-family: Arial;
+            background: linear-gradient(to right,#1e1e2f,#3b2f63);
+            color:white;
+            text-align:center;
+            padding:40px;
+        }
+
+        .container{
+            width:450px;
+            margin:auto;
+            background:rgba(255,255,255,0.12);
+            padding:25px;
+            border-radius:15px;
+            box-shadow:0 0 15px rgba(0,0,0,0.4);
+        }
+
+        h1{
+            color:gold;
+        }
+
+        input,select{
+            width:90%;
+            padding:10px;
+            margin:10px;
+            border-radius:8px;
+            border:none;
+        }
+
+        button{
+            background:gold;
+            color:black;
+            padding:10px 20px;
+            border:none;
+            border-radius:8px;
+            font-weight:bold;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>⚡ Harry Potter Character Creator ⚡</h1>
+    <h3>Create your own Hogwarts Wizard</h3>
+
+    <form th:action="@{/submitCharacter}" th:object="${wizardCharacter}" method="post">
+        <input type="text" th:field="*{name}" placeholder="Character Name" required>
+
+        <select th:field="*{house}">
+            <option value="">Select House</option>
+            <option value="Gryffindor">Gryffindor</option>
+            <option value="Slytherin">Slytherin</option>
+            <option value="Ravenclaw">Ravenclaw</option>
+            <option value="Hufflepuff">Hufflepuff</option>
+        </select>
+
+        <input type="text" th:field="*{wandWood}" placeholder="Wand Wood">
+        <input type="text" th:field="*{patronus}" placeholder="Patronus">
+
+        <select th:field="*{favoriteSpell}">
+            <option value="">Favorite Spell</option>
+            <option value="Expelliarmus">Expelliarmus</option>
+            <option value="Lumos">Lumos</option>
+            <option value="Alohomora">Alohomora</option>
+            <option value="Expecto Patronum">Expecto Patronum</option>
+            <option value="Wingardium Leviosa">Wingardium Leviosa</option>
+        </select>
+
+        <input type="number" th:field="*{powerLevel}" placeholder="Power Level (1-100)" min="1" max="100">
+
+        <br>
+        <button type="submit">Create Wizard</button>
+    </form>
+</div>
+</body>
+</html>

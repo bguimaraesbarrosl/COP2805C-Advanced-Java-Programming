@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Wizard Created</title>
+    <style>
+        body{
+            font-family:Arial;
+            background:#0f172a;
+            color:white;
+            text-align:center;
+            padding:40px;
+        }
+
+        .card{
+            width:450px;
+            margin:auto;
+            background:#1e293b;
+            padding:25px;
+            border-radius:15px;
+            box-shadow:0 0 12px rgba(255,255,255,0.15);
+        }
+
+        h1{
+            color:gold;
+        }
+
+        a{
+            color:gold;
+            text-decoration:none;
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>✨ Your Wizard Has Been Created! ✨</h1>
+
+    <p><b>Name:</b> <span th:text="${wizardCharacter.name}"></span></p>
+    <p><b>House:</b> <span th:text="${wizardCharacter.house}"></span></p>
+    <p><b>Wand Wood:</b> <span th:text="${wizardCharacter.wandWood}"></span></p>
+    <p><b>Patronus:</b> <span th:text="${wizardCharacter.patronus}"></span></p>
+    <p><b>Favorite Spell:</b> <span th:text="${wizardCharacter.favoriteSpell}"></span></p>
+    <p><b>Power Level:</b> <span th:text="${wizardCharacter.powerLevel}"></span></p>
+
+    <br>
+    <a th:href="@{/}">Create Another Wizard</a>
+</div>
+</body>
+</html>
